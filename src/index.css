@@ -40,15 +40,15 @@ body {
   position: absolute;
 }
 .clock .hour .hr{
-  width: 160px;
+  width: 8px;
   height: 160px;
 }
 .clock .min .mn{
-  width: 190px;
+  width: 6px;
   height: 190px;
 }
 .clock .sec .sc{
-  width: 230px;
+  width: 4px;
   height: 230px;
 }
 .hr .mn .sc {
@@ -84,4 +84,17 @@ body {
   background: #fff;
   z-index: 12;
   border-radius: 6px 6px 0 0;
+}
+.time{
+  color: white;
+  text-align: center;
+  padding-top: 40px;
+  font-size: 45px;
+}
+.title {
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  padding-bottom: 30px;
+  justify-content: center;
 }

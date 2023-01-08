@@ -5,23 +5,33 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const deg: number = 6;
-const hr = document.querySelector("#hr");
-const mn = document.querySelector("#mn");
-const sc = document.querySelector("#sc");
+function tick() {
 
-let day = new Date();
-let hh = day.getHours();
-let mm = day.getMinutes();
-let ss = day.getSeconds();
+  const deg: number = 6;
+  const hr: HTMLDivElement | null = document.querySelector("#hr");
+  const mn: HTMLDivElement | null = document.querySelector("#mn");
+  const sc: HTMLDivElement | null = document.querySelector("#sc");
 
+  let day = new Date();
+  let hh = day.getHours() * 30;
+  let mm = day.getMinutes() * deg;
+  let ss = day.getSeconds() * deg;
 
+  if(hr) {
+    hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`;
+  }
 
-// function tick() {
+  if(mn) {
+    mn.style.transform = `rotateZ(${mm}deg)`;
+  }
+
+  if(sc) {
+    sc.style.transform = `rotateZ(${ss}deg)`;
+  }
+
   const element = (
     <>
-      {/* <h1>Welcome!</h1>
-      <h2>It is {new Date().toLocaleTimeString()}.</h2> */}
+      <h1 className='title'>CLOCK APP</h1>
       <div className='clock'>
         <div className='hour'>
           <div className='hr' id='hr'/>
@@ -33,9 +43,10 @@ let ss = day.getSeconds();
           <div className='sc' id='sc'/>
         </div>  
       </div>
+      <div className='time'>{new Date().toLocaleTimeString()}</div>
     </>
   );
   root.render(element);
-// }
+}
 
-// setInterval(tick, 1000);
+setInterval(tick, 1000);
